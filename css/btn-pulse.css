@@ -1,0 +1,50 @@
+:root {
+  --pulse-size: 48px;
+}
+
+.btn-pulse {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2196f3;
+  border-radius: 50%;
+  margin: calc(var(--pulse-size) / 2);
+  height: var(--pulse-size);
+  width: var(--pulse-size);
+  transition: all 0.4s;
+}
+
+.btn-pulse > img {
+  width: 70%;
+  height: 50%;
+}
+
+.btn-pulse:hover {
+  height: calc(var(--pulse-size) * 1.1);
+  width: calc(var(--pulse-size) * 1.1);
+}
+.pulse-effect {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 #2196f370;
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 calc(var(--pulse-size) * 0.65) rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}

@@ -1,0 +1,194 @@
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.95);
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#overlay-options {
+  top: 0;
+  z-index: 10000;
+}
+
+#overlay-crop {
+  bottom: 0;
+  background: #6441a5;
+  background: -webkit-linear-gradient(to right, #2a0845, #6441a5);
+  background: linear-gradient(to right, #2a0845, #6441a5);
+  z-index: 100;
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0 30vw;
+  text-align: center;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay #close-options {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  font-size: 120px;
+}
+
+.overlay .title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  padding: 0 0 1.5rem 0;
+  align-self: flex-start;
+}
+
+.overlay.title.name {
+  padding-top: 3rem;
+}
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay #close-options {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+#imgName {
+  font-size: 1.25rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  outline: none;
+}
+
+/*CUSTOM INPUTS*/
+.format {
+  text-align: center;
+  padding-right: 8rem;
+  font-size: 1.25rem;
+  color: white;
+  padding-bottom: 1.5rem;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.format input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  right: 30%;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.format:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.format input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.format input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.format .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.download-options {
+  position: absolute;
+  cursor: pointer;
+  opacity: 1;
+  width: 70px;
+  top: 67.5%;
+  right: 12%;
+  animation-name: bounce;
+  transform-origin: center bottom;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+.download-options img {
+  width: 100%;
+}
+
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0);
+  }
+}
